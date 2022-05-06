@@ -1,0 +1,35 @@
+<h2 class="content-block">Ventas</h2>
+<dx-button class="alignBtn" text="Compras Clientes Por Año" (click)="totalComprasPorAnio()"></dx-button>
+<dx-button class="alignBtn" text="Compras Clientes Por Edad" (click)="BuscarComprasClientes()"></dx-button>
+<dx-button class="alignBtn" text="Generar Venta" (click)="generarVenta()"></dx-button>
+<dx-button class="alignBtn" text="Fecha Estimada Venta" (click)="fechaEstimadaVenta()"></dx-button>
+
+<div class="content-block dx-card responsive-paddings" *ngIf="cardCrearVentas">
+    <dx-form id="form" [formData]="ventasForm" labelLocation="top" [colCountByScreen]="colCountByScreen"></dx-form>
+    <dx-button class="btn-style" text="Generar" (click)="onSave()"></dx-button>
+</div>
+
+<div class="content-block dx-card responsive-paddings" *ngIf="cardAgrupadoProductos">
+    <dx-data-grid [allowColumnReordering]="true" [dataSource]="employees" [allowColumnReordering]="true">
+        <dxi-column dataField="Cliente" dataType="Number"></dxi-column>
+        <dxi-column dataField="Nombre"></dxi-column>
+        <dxi-column dataField="Total Productos Comprados"></dxi-column>
+        <dxi-column dataField="Total Venta Producto" dataType="Number"></dxi-column>
+    </dx-data-grid>
+</div>
+
+<div class="content-block dx-card responsive-paddings" *ngIf="cardClientesNoMayores">
+    <dx-data-grid [allowColumnReordering]="true" [dataSource]="employees" [allowColumnReordering]="true">
+        <dxi-column dataField="Nombres"></dxi-column>
+        <dxi-column dataField="Edad"></dxi-column>
+        <dxi-column dataField="NroIdentificacion"></dxi-column>
+    </dx-data-grid>
+</div>
+
+<div class="content-block dx-card responsive-paddings" *ngIf="cardfechaEstimada">
+    <dx-data-grid [allowColumnReordering]="true" [dataSource]="employees" [allowColumnReordering]="true">
+        <dxi-column dataField="Nombres"></dxi-column>
+        <dxi-column dataField="UltimaCompra"></dxi-column>
+        <dxi-column dataField="fechaEstimada {{fechaEstimada | date: 'dd/MM/yyyy'}}">{{fechaEstimada | date: 'dd/MM/yyyy'}}</dxi-column>
+    </dx-data-grid>
+</div>

@@ -1,0 +1,22 @@
+<h2 class="content-block">Clientes</h2>
+<dx-button class="alignBtn" text="{{mensajeBtn}}" (click)="crearClientes()"></dx-button>
+
+<div class="content-block dx-card responsive-paddings" *ngIf="!cardCrearClientes">
+    <dx-data-grid [allowColumnReordering]="true" [dataSource]="employees" [allowColumnReordering]="true">
+        <dxi-column dataField="Nombres"></dxi-column>
+        <dxi-column dataField="Apellidos"></dxi-column>
+        <dxi-column dataField="Telefono" dataType="Number"></dxi-column>
+        <dxi-column dataField="NroIdentificacion"></dxi-column>
+        <dxi-column dataField="FechaNacimiento" dataType="date"></dxi-column>
+        <dxi-column dataField="DireccionResidencia" [width]="100"></dxi-column>
+    </dx-data-grid>
+
+
+</div>
+
+<div class="content-block dx-card responsive-paddings" *ngIf="cardCrearClientes">
+    <dx-form id="form" [formData]="clientesForm" labelLocation="top" [colCountByScreen]="colCountByScreen">
+    </dx-form>
+    <dx-button class="btn-style" text="Crear" (click)="onSave()"></dx-button>
+    <dx-button class="btn-style" text="Editar"></dx-button>
+</div>
