@@ -6,5 +6,5 @@ export interface Clientes {
     TipoIdentificacion:  string;
     NroIdentificacion:   number;
     FechaNacimiento:     Date;
-    DireccionResidencia: string;
+    DireccionResidencia: string; 
 }
